@@ -5,12 +5,12 @@ import './unityStyle.css';
 export default function UnityApp() {
   const [inputData, setInputData] = useState('');
   // const buildName = 'QuizzTemplateBuild';
-  const buildName = 'SubterraTest';
+  const buildName = 'subterratest';
   const { unityProvider, loadingProgression, isLoaded, sendMessage } = useUnityContext({    
-    loaderUrl: `../public/Build/${buildName}.loader.js`,
-    dataUrl: `../public/Build/${buildName}.data.gz`,
-    frameworkUrl: `../public/Build/${buildName}.framework.js.gz`,
-    codeUrl: `../public/Build/${buildName}.wasm.gz`,
+    loaderUrl: `../public/build/${buildName}.loader.js`,
+    dataUrl: `../public/build/${buildName}.data.gz`,
+    frameworkUrl: `../public/build/${buildName}.framework.js.gz`,
+    codeUrl: `../public/build/${buildName}.wasm.gz`,
     // loaderUrl: "../build/Build/SubterraTest.loader.js",
     // dataUrl: `../build/Build/SubterraTest.data.gz`,
     // frameworkUrl: `../build/Build/SubterraTest.framework.js.gz`,
