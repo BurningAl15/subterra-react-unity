@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://BurningAl15.github.io/subterra-react-unity",
+  "homepage": "https://burningal15.github.io/subterra-react-unity",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
