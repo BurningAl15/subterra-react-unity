@@ -73,6 +73,9 @@ export default function UnityApp() {
 
   return (
     <>
+      <p>If the screen looks black when the percentage finished to load, download this extension</p>
+      <a href={'https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es'}>Access-Control-Allow-Origin</a>
+
       {!isLoaded && (
         <p>Loading Application... {Math.round(loadingProgression * 100)}%</p>
       )}
