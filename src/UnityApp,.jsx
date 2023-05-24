@@ -86,8 +86,8 @@ export default function UnityApp() {
         isLoaded && 
         <button onClick={()=>handleSetText()}>Change text</button>
       } */}
-      <input type="text" value={inputData} onChange={(e) => setInputData(e.target.value)} />
-      <p>Input data: {inputData}</p>
+      {/* <input type="text" value={inputData} onChange={(e) => setInputData(e.target.value)} />
+      <p>Input data: {inputData}</p> */}
     </>
   );
 }
