@@ -2,7 +2,7 @@
 # routing internally.
 [[redirects]]
   from = "/*"
-  to = "https://subterra-test.b-cdn.net/GS010160.mp4"
+  to = "/index.html"
   status = 200
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
