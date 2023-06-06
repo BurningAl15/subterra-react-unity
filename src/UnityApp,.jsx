@@ -1,26 +1,18 @@
-import React, {useState, useCallback, useRef} from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import './unityStyle.css';
 
-export default function UnityApp() {
+export default function UnityApp(props) {
   const [inputData, setInputData] = useState('');
-  // const buildName = 'QuizzTemplateBuild';
   let isTesting = false;
-  const buildName = 'SubterraTestV2';
-  const path = isTesting ? '../public/Build' : '/Build';
-  const { unityProvider, loadingProgression, isLoaded, sendMessage } = useUnityContext({    
-    // loaderUrl: `${path}/${buildName}.loader.js`,
-    // dataUrl: `${path}/${buildName}.data.gz`,
-    // frameworkUrl: `${path}/${buildName}.framework.js.gz`,
-    // codeUrl: `${path}/${buildName}.wasm.gz`,
+  const { buildName, directoryName } = props;
+
+  const path = isTesting ? `../public/${directoryName}/Build` : `/${directoryName}/Build`;
+  const { unityProvider, loadingProgression, isLoaded, sendMessage } = useUnityContext({
     loaderUrl: `${path}/${buildName}.loader.js`,
     dataUrl: `${path}/${buildName}.data.unityweb`,
     frameworkUrl: `${path}/${buildName}.framework.js.unityweb`,
     codeUrl: `${path}/${buildName}.wasm.unityweb`,
-    // loaderUrl: "../build/Build/SubterraTest.loader.js",
-    // dataUrl: `../build/Build/SubterraTest.data.gz`,
-    // frameworkUrl: `../build/Build/SubterraTest.framework.js.gz`,
-    // codeUrl: `../build/Build/SubterraTest.wasm.gz`,
     enableCommunication: true,
   });
 
@@ -73,24 +65,24 @@ export default function UnityApp() {
 
   return (
     <>
-      <p>If the screen looks black when the percentage finished to load, download this extension</p>
-      <a href={'https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es'}>Access-Control-Allow-Origin</a>
+      {
+        buildName === "SubterraTestV2" &&
+        <>
+          <p>If the screen looks black when the percentage finished to load, download this extension</p>
+          <a href={'https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es'}>Access-Control-Allow-Origin</a>
+        </>
+      }
 
       {!isLoaded && (
         <p>Loading Application... {Math.round(loadingProgression * 100)}%</p>
       )}
+
       <Unity
         unityProvider={unityProvider}
-        style={{ visibility: isLoaded ? "visible" : "hidden", width: '100%', height:'100%' }}
+        style={{ visibility: isLoaded ? "visible" : "hidden", width: '100%', height: '100%' }}
         // devicePixelRatio={devicePixelRatio}
         className='unity-container'
       />
-      {/* {
-        isLoaded && 
-        <button onClick={()=>handleSetText()}>Change text</button>
-      } */}
-      {/* <input type="text" value={inputData} onChange={(e) => setInputData(e.target.value)} />
-      <p>Input data: {inputData}</p> */}
     </>
   );
 }
